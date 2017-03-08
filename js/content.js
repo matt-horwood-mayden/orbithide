@@ -1,3 +1,6 @@
+localStorage.setItem('which', '');
+
+
 window.chrome.runtime.onMessage.addListener(function (msg, sender, sendResponse) {
     // If the received message has the expected format...
     if (msg.text === 'find-stories') {
@@ -5,10 +8,10 @@ window.chrome.runtime.onMessage.addListener(function (msg, sender, sendResponse)
         var arr = Array.prototype.slice.call( list )
         var which;
         if (localStorage.getItem('which') === 'none') {
-            which_get = 'none';
+            which_get = '';
             which_set = '';
         } else {
-            which_get = '';
+            which_get = 'none';
             which_set = 'none';
         }
         arr.forEach(myFunction);
